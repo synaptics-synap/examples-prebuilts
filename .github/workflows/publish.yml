@@ -1,0 +1,36 @@
+name: Deploy to wip/gh-pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Checkout pages branch
+        uses: actions/checkout@v3
+        with:
+          ref: wip/gh-pages
+          path: gh-pages
+
+      - name: Sync package metadata and files
+        run: |
+          mkdir -p gh-pages/packages/llama-cpp-python
+          mkdir -p gh-pages/packages/sqlite
+          mkdir -p gh-pages/packages/outetts
+          cp -r packages/llama-cpp-python/* gh-pages/packages/llama-cpp-python/ || true
+          cp -r packages/sqlite/* gh-pages/packages/sqlite/ || true
+          cp -r packages/outetts/* gh-pages/packages/outetts/ || true
+
+      - name: Commit and push to wip/gh-pages
+        run: |
+          cd gh-pages
+          git config user.name "synaptics-bot"
+          git config user.email "actions@synaptics.com"
+          git add .
+          git commit -m "Update prebuilt packages" || echo "No changes to commit"
+          git push origin wip/gh-pages
