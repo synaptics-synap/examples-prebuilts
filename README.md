@@ -1,15 +1,25 @@
-# Synaptics Synap – Examples Prebuilt Packages
+# Synaptics Synap – Examples [Prebuilt Packages](https://synaptics-synap.github.io/examples-prebuilts/)
 
 This repository hosts prebuilt binary packages used with the Synaptics [Astra SL Series Examples](https://github.com/synaptics-synap/examples/tree/main)
 
 Prebuilt binaries are available via GitHub Pages on the `wip/gh-pages` branch [here](https://synaptics-synap.github.io/examples-prebuilts/)
+
+##  Usage
+
+You can use these prebuilt packages directly on your **Astra Machina** device based on the file type:
+
+### 📦 Python Wheels (`.whl`)
+Install using `pip`:
+```bash
+pip install <package-name>.whl
+```
+
+### 📦 Debian Packages (.deb)
+Install using `dpkg`:
+```bash
+dpkg -i <package-name>.deb
+```
  
-
-🔗 You can use these directly in your build system or with `pip` if its a wheel or `dpkg -i` if its a deb.
-
-
- 
-
 ## Deployment
 
 Prebuilt packages are deployed to `wip/gh-pages` branch. To add a new package:
