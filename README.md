@@ -2,6 +2,8 @@
 
 This repository hosts prebuilt binary packages used with the Synaptics [Astra SL Series Examples](https://github.com/synaptics-synap/examples/tree/main)
 
+These are based on Python 3.10 version.
+
 Prebuilt binaries are available via GitHub Pages on the `wip/gh-pages` branch [here](https://synaptics-synap.github.io/examples-prebuilts/)
 
 ##  Usage
